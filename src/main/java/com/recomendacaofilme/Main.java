@@ -15,7 +15,7 @@ public class Main {
 
         // Verifica se houve erro ao carregar
         if (fis == null) {
-            System.err.println("Não foi possível carregar o arquivo: '" + fileName + "'");
+            System.err.println("Nao foi possivel carregar o arquivo: '" + fileName + "'");
             return;
         }
 
