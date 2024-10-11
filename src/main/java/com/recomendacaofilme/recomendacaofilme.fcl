@@ -2,11 +2,11 @@ FUNCTION_BLOCK recomendacao
     VAR_INPUT
         avaliacao 					: REAL;
         duracao 					: REAL;
-        popularidade 				: REAL;
+        popularidade 					: REAL;
     END_VAR
 
     VAR_OUTPUT
-        recomendacao 				: REAL;
+        recomendacao 					: REAL;
     END_VAR
 
     FUZZIFY avaliacao
@@ -22,14 +22,14 @@ FUNCTION_BLOCK recomendacao
     END_FUZZIFY
 
     FUZZIFY popularidade
-        TERM pouco_popular  		:= (0, 1) (33, 0);
-        TERM moderadamente_popular 	:= (25, 0) (50, 1) (75, 0);
-        TERM muito_popular   		:= (66, 0) (100, 1) (100, 0);
+        TERM pouco_popular  				:= (0, 1) (33, 0);
+        TERM moderadamente_popular 			:= (25, 0) (50, 1) (75, 0);
+        TERM muito_popular   				:= (66, 0) (100, 1) (100, 0);
     END_FUZZIFY
 
     DEFUZZIFY recomendacao
         TERM baixa 					:= (0, 0) (25, 1) (50, 0);
-        TERM moderada 				:= (25, 0) (50, 1) (75, 0);
+        TERM moderada 					:= (25, 0) (50, 1) (75, 0);
         TERM alta 					:= (50, 0) (75, 1) (100, 0);
     END_DEFUZZIFY 
 
