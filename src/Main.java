@@ -1,5 +1,3 @@
-package src.main.java.com.recomendacaofilme;
-
 import java.nio.file.Paths;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
@@ -8,7 +6,7 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 public class Main {
     public static void main(String[] args) {
         // Define o caminho do arquivo FCL
-        String fileName = Paths.get("src/main/java/com/recomendacaofilme/recomendacaofilme.fcl").toAbsolutePath().toString();
+        String fileName = Paths.get("src/recomendacaofilme.fcl").toAbsolutePath().toString();
 
         // Carrega o arquivo FCL
         FIS fis = FIS.load(fileName, true);
