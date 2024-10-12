@@ -1,4 +1,4 @@
-package main.java.com.recomendacaofilme;
+package src.main.java.com.recomendacaofilme;
 
 import java.nio.file.Paths;
 import net.sourceforge.jFuzzyLogic.FIS;
@@ -28,8 +28,9 @@ public class Main {
         fis.evaluate();
 
         // Obtém e mostra a variável de saída
-        Variable tip = fis.getVariable("recomendacao");
-        JFuzzyChart.get().chart(tip, tip.getDefuzzifier(), true);
+        Variable recomendacao = fis.getVariable("recomendacao");
+//        JFuzzyChart.get().chart(recomendacao, recomendacao.getDefuzzifier(), true);
+        JFuzzyChart.get().chart(fis);
 
         // Imprime o conjunto de regras
         System.out.println(fis);

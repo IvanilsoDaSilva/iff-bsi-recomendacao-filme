@@ -31,6 +31,8 @@ FUNCTION_BLOCK recomendacao
         TERM baixa 					:= (0, 0) (25, 1) (50, 0);
         TERM moderada 					:= (25, 0) (50, 1) (75, 0);
         TERM alta 					:= (50, 0) (75, 1) (100, 0);
+        METHOD : COG;
+        DEFAULT := 0;
     END_DEFUZZIFY 
 
     RULEBLOCK first
