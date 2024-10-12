@@ -20,19 +20,21 @@ public class Main {
         }
 
         // Define as variáveis de entrada
-        fis.setVariable("avaliacao", 3);  // Define a avaliação
-        fis.setVariable("duracao", 20);    // Define a duração
-        fis.setVariable("popularidade", 25); // Define a popularidade
+        fis.setVariable("avaliacao", 90);  // Define a avaliação
+        fis.setVariable("duracao", 70);    // Define a duração
+        fis.setVariable("popularidade", 80); // Define a popularidade
 
         // Avalia
         fis.evaluate();
 
         // Obtém e mostra a variável de saída
         Variable recomendacao = fis.getVariable("recomendacao");
-//        JFuzzyChart.get().chart(recomendacao, recomendacao.getDefuzzifier(), true);
         JFuzzyChart.get().chart(fis);
 
         // Imprime o conjunto de regras
         System.out.println(fis);
+        
+        // Imprime a solução
+        System.out.println("Valor da recomendação: "+recomendacao.getValue()); 
     }
 }

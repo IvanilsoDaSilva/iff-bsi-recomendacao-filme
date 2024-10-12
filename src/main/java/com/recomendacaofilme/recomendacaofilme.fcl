@@ -1,24 +1,24 @@
 FUNCTION_BLOCK recomendacao
     VAR_INPUT
-        avaliacao 					: REAL;
-        duracao 					: REAL;
-        popularidade 					: REAL;
+        avaliacao 							: REAL;
+        duracao 							: REAL;
+        popularidade 						: REAL;
     END_VAR
 
     VAR_OUTPUT
-        recomendacao 					: REAL;
+        recomendacao 						: REAL;
     END_VAR
 
     FUZZIFY avaliacao
-        TERM baixa 					:= (0, 1) (33, 0);
-        TERM media 					:= (25, 0) (50, 1) (75, 0);
-        TERM alta 					:= (66, 0) (100, 1) (100, 0);
+        TERM baixa 							:= (0, 1) (33, 0);
+        TERM media 							:= (25, 0) (50, 1) (75, 0);
+        TERM alta 							:= (66, 0) (100, 1) (100, 0);
     END_FUZZIFY
 
     FUZZIFY duracao
-        TERM curta 					:= (0, 1) (25, 0);
-        TERM media 					:= (20, 0) (50, 1) (80, 0);
-        TERM longa 					:= (66, 0) (100, 1) (100, 0);
+        TERM curta 							:= (0, 1) (25, 0);
+        TERM media 							:= (20, 0) (50, 1) (80, 0);
+        TERM longa 							:= (66, 0) (100, 1) (100, 0);
     END_FUZZIFY
 
     FUZZIFY popularidade
@@ -28,16 +28,16 @@ FUNCTION_BLOCK recomendacao
     END_FUZZIFY
 
     DEFUZZIFY recomendacao
-        TERM baixa 					:= (0, 0) (25, 1) (50, 0);
-        TERM moderada 					:= (25, 0) (50, 1) (75, 0);
-        TERM alta 					:= (50, 0) (75, 1) (100, 0);
+        TERM baixa 							:= (0, 0) (25, 1) (50, 0);
+        TERM moderada 						:= (25, 0) (50, 1) (75, 0);
+        TERM alta 							:= (50, 0) (75, 1) (100, 0);
         METHOD : COG;
         DEFAULT := 0;
     END_DEFUZZIFY 
 
     RULEBLOCK first
-        AND 						: MIN;
-        ACCU 						: MAX;
+        AND 								: MIN;
+        OR 									: MAX;
 
         RULE 0 : IF avaliacao IS alta AND popularidade IS muito_popular THEN recomendacao IS alta;
 		RULE 1 : IF avaliacao IS media AND duracao IS curta THEN recomendacao IS moderada;
